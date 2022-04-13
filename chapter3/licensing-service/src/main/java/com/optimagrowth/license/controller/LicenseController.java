@@ -33,6 +33,8 @@ public class LicenseController {
 		
 		License license = licenseService.getLicense(licenseId, organizationId);
 		license.add( 
+			//Appending the API guides to the response HATEOAS
+			//In this way the user can understand what do next
 				linkTo(methodOn(LicenseController.class).getLicense(organizationId, license.getLicenseId())).withSelfRel(),
 				linkTo(methodOn(LicenseController.class).createLicense(organizationId, license, null)).withRel("createLicense"),
 				linkTo(methodOn(LicenseController.class).updateLicense(organizationId, license)).withRel("updateLicense"),
