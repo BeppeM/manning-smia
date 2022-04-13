@@ -27,7 +27,7 @@ public class LicenseService {
 
 		return license;
 	}
-
+//Locale is used for internationalize(languages)
 	public String createLicense(License license, String organizationId, Locale locale){
 		String responseMessage = null;
 		if(!StringUtils.isEmpty(license)) {
