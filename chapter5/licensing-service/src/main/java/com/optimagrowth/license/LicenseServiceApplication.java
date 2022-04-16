@@ -11,6 +11,7 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 @SpringBootApplication
+//Annotation used to force the refresh to reload the custom Spring properties in our application configuration
 @RefreshScope
 public class LicenseServiceApplication {
 
