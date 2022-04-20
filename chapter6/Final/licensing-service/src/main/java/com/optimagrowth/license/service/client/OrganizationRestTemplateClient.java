@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.optimagrowth.license.model.Organization;
-
+//Effettivo RestTemplate da usare
 @Component
 public class OrganizationRestTemplateClient {
     @Autowired
