@@ -52,19 +52,22 @@ public class LicenseService {
 
 		return license.withComment(config.getProperty());
 	}
-
+//organizationId usato per cercare una istanza di organization service
 	private Organization retrieveOrganizationInfo(String organizationId, String clientType) {
 		Organization organization = null;
 
 		switch (clientType) {
+//Invoca un servizio tramite LoadBalancer				
 		case "feign":
 			System.out.println("I am using the feign client");
 			organization = organizationFeignClient.getOrganization(organizationId);
 			break;
+//Invoca il load balancer service				
 		case "rest":
 			System.out.println("I am using the rest client");
 			organization = organizationRestClient.getOrganization(organizationId);
 			break;
+//Usa il Discovery Client e RestTemplate class per invocare organization service				
 		case "discovery":
 			System.out.println("I am using the discovery client");
 			organization = organizationDiscoveryClient.getOrganization(organizationId);
