@@ -37,9 +37,10 @@ public class LicenseServiceApplication {
 		messageSource.setBasenames("messages");
 		return messageSource;
 	}
-//Bean che serve per poter interagire con il Load Balancer via Spring
+
 	@LoadBalanced
 	@Bean
+//RestTemplate è la classe che consente  lato client accessi HTTP in modo simultaneo
 	public RestTemplate getRestTemplate(){
 		return new RestTemplate();
 	}
