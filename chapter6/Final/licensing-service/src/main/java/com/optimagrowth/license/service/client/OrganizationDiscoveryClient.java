@@ -16,6 +16,7 @@ import com.optimagrowth.license.model.Organization;
 public class OrganizationDiscoveryClient {
 
     @Autowired
+    //DiscoveryClient usato per interagire con Spring Cloud Load Balancer
     private DiscoveryClient discoveryClient;
 
     public Organization getOrganization(String organizationId) {
