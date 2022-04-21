@@ -113,7 +113,7 @@ public class LicenseService {
 		return responseMessage;
 
 	}
-//CircuitBreaker of Resilience4j
+//CircuitBreaker of Resilience4j with a fallback method buildFallbackLicenseList
 	@CircuitBreaker(name = "licenseService", fallbackMethod = "buildFallbackLicenseList")
 	@RateLimiter(name = "licenseService", fallbackMethod = "buildFallbackLicenseList")
 	@Retry(name = "retryLicenseService", fallbackMethod = "buildFallbackLicenseList")
@@ -125,6 +125,7 @@ public class LicenseService {
 		return licenseRepository.findByOrganizationId(organizationId);
 	}
 
+//Fallback method for the circuit breaker
 	@SuppressWarnings("unused")
 	private List<License> buildFallbackLicenseList(String organizationId, Throwable t){
 		List<License> fallbackList = new ArrayList<>();
