@@ -113,7 +113,7 @@ public class LicenseService {
 		return responseMessage;
 
 	}
-
+//CircuitBreaker of Resilience4j
 	@CircuitBreaker(name = "licenseService", fallbackMethod = "buildFallbackLicenseList")
 	@RateLimiter(name = "licenseService", fallbackMethod = "buildFallbackLicenseList")
 	@Retry(name = "retryLicenseService", fallbackMethod = "buildFallbackLicenseList")
