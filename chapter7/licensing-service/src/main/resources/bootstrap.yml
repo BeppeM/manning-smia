@@ -39,7 +39,7 @@ management.endpoint.health:
  enabled: true
  show-details: always
 
-
+# Configurations for the circuit breaker
 resilience4j.circuitbreaker:
   instances:
   #nome del circuit breaker dato nell'annotazione
@@ -61,13 +61,14 @@ resilience4j.circuitbreaker:
       waitDurationInOpenState: 20s
       failureRateThreshold: 60
 
+
 resilience4j.ratelimiter:
   instances:
     licenseService:
       limitForPeriod: 5
       limitRefreshPeriod: 5000
       timeoutDuration: 1000ms
-
+#Configurations for retry pattern
 resilience4j.retry:
   instances:
     retryLicenseService:
@@ -76,8 +77,10 @@ resilience4j.retry:
       retry-exceptions:
         - java.util.concurrent.TimeoutException
 
+#Configurations for the bulkhead pattern
 resilience4j.bulkhead:
   instances:
+  #nome del bulkhead messo nel LicenseService
     bulkheadLicenseService:
       maxWaitDuration: 2ms
       maxConcurrentCalls: 20
