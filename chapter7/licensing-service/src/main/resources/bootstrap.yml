@@ -42,6 +42,7 @@ management.endpoint.health:
 
 resilience4j.circuitbreaker:
   instances:
+  #nome del circuit breaker dato nell'annotazione
     licenseService:
       registerHealthIndicator: true
       ringBufferSizeInClosedState: 5
