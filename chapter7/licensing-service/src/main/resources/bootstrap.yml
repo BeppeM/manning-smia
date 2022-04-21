@@ -64,6 +64,7 @@ resilience4j.circuitbreaker:
 #Configurations for the rate limter pattern
 resilience4j.ratelimiter:
   instances:
+ #Nome del rate limiter dato nell'annotazione
     licenseService:
       limitForPeriod: 5
       limitRefreshPeriod: 5000
