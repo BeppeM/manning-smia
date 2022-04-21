@@ -61,7 +61,7 @@ resilience4j.circuitbreaker:
       waitDurationInOpenState: 20s
       failureRateThreshold: 60
 
-
+#Configurations for the rate limter pattern
 resilience4j.ratelimiter:
   instances:
     licenseService:
