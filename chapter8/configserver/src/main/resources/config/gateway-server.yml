@@ -16,10 +16,14 @@ spring:
     loadbalancer.ribbon.enabled: false
     gateway:
         routes:
+        #route id opzionale
         - id: organization-service
+        #URI di destinazione 
           uri: lb://organization-service
+        #immetto il percorso (opzionale)
           predicates:
           - Path=/organization/**
+        #filtri per modificare la richiesta o risposta prima o dopo aver inviato la rispostaa
           filters:
           - RewritePath=/organization/(?<path>.*), /$\{path}
         - id: licensing-service
